@@ -38,11 +38,10 @@ myArray.push(["Education", "University degree"])
 //работа с массивами
 
 
-//Golf Code
+//Golf Code(FCC)
 const names = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home!"];
 
 function golfScore(par, strokes) {
-  // Only change code below this line
 if (strokes == 1){
   return "Hole-in-one!";
 }
@@ -64,9 +63,38 @@ else if(strokes == par + 2){
 else{
   return "Go Home!";
 }
-  // Only change code above this line
 }
 
 golfScore(5, 4);
 console.log(golfScore(3,3));
-//Golf Code
+//Golf Code(FCC)
+
+//Counting cards (FCC)
+let count = 0;
+
+function cc(card) {
+  switch (card) {
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      count++;
+      break;
+    case 10:
+    case "J":
+    case "Q":
+    case "K":
+    case "A":
+      count--;
+      break;
+  }
+  if(count > 0){
+    return count + " Bet";
+  } else {
+    return count + " Hold";
+  }
+}
+
+cc(2); cc(3); cc(7); cc('K'); cc('A');
+//Counting cards(FCC)
