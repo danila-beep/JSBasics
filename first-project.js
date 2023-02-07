@@ -98,3 +98,23 @@ function cc(card) {
 
 cc(2); cc(3); cc(7); cc('K'); cc('A');
 //Counting cards(FCC)
+
+//Использование Обьектов для поиска (FCC)
+function phoneticLookup(val) {
+  let result = "";
+
+let lookup = {
+  "alpha": "Adams",
+  "bravo": "Boston",
+  "charlie": "Chicago",
+  "delta": "Denver",
+  "echo": "Easy",
+  "foxtrot": "Frank",
+}
+return lookup[val];
+
+return result;
+}
+
+phoneticLookup("charlie");
+//Использование Обьектов для поиска (FCC)
