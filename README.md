@@ -808,3 +808,230 @@ myFn(let d) // Uncaught SyntaxError
 ---
 
 ## Массивы
+
+массив - это обьект с цифровыми именами свойств
+
+Мы можем мутировать элементы массива, даже если они обьявлены через `const` так как массивы являются ссылочным обьектом
+
+### Формат записи массивов
+
+```jsx
+const myArray = [1, 2, 3]
+console.log(myArray)
+// [1, 2, 3]
+
+const myArray2 = new Array(1, 2, 3)
+console.log(myArray2)
+// [1, 2, 3]
+```
+
+`myArray.length` - количество элементов массива
+
+### массив vs обьект
+
+```jsx
+const myObject = {
+	0: 1,
+	1: 2,
+	2: 3,
+	length: 3
+}
+
+console.log(myObject)
+// {0: 1, 1: 2, 2: 3, length: 3}
+```
+
+```jsx
+const myArray = [1, 2, 3]
+
+console.log(myArray)
+// [1, 2, 3]
+```
+
+### Чтение значений массива
+
+```jsx
+const myArray = [1, true, 'a']
+console.log(myArray) //[1, true, 'a']
+
+console.log(myArray[0]) //1
+console.log(myArray[1]) //true
+
+console.log(myArray.length) //3
+```
+
+### Длина массива
+
+```jsx
+const myArray = [1, 2, 3, 4]
+console.log(myArray) //[1, 2, 3, 4]
+console.log(myArray.length) //4
+
+myArray[2] = 'abc'
+
+console.log(myArray) //[1, 2, 'abc', 4]
+console.log(myArray[2]) //'abc'
+
+myArray[4] = true
+
+console.log(myArray) //[1, 2, 'abc', 4, true]
+console.log(myArray,length) //5
+```
+
+### Методы массивов (функции высшего порядка)
+
+- `push` (добавляет элемент в конец массива)
+
+```jsx
+const myArray = [1, 2, 3]
+console.log(myArray) //[1, 2, 3]
+
+myArray.push(4)
+
+console.log(myArray) //[1, 2, 3, 4]
+
+```
+
+- `pop` (удаляет элемент с конца массива + может показать через `console.log` что удалил)
+
+```jsx
+const myArray = [1, 2, 3]
+console.log(myArray) //[1, 2, 3]
+
+myArray.pop()
+
+console.log(myArray) //[1, 2]
+
+const removedElement = myArray.pop()
+
+console.log(myArray) //[1]
+console.log(removedElement) //2
+```
+
+- `shift` (удаляет первый элемент в массиве + может показать через `console.log` что удалил)
+
+```jsx
+const myArray = [1, 2, 3]
+console.log(myArray) //[1, 2, 3]
+
+myArray.shift()
+
+console.log(myArray) //[2, 3]
+
+const removedElement = myArray.shift()
+
+console.log(myArray) //[3]
+console.log(removedElement) //2
+```
+
+- `unshift` (добавляет элемент в начало массива)
+
+```jsx
+const myArray = [1, 2, 3]
+console.log(myArray) //[1, 2, 3]
+
+myArray.unshift(true)
+
+console.log(myArray) //[true, 1, 2, 3]
+```
+
+- `forEach` (перебирает все элементы массива, подставлять их к параметру и для каждого будет вызывать callback функцию)
+
+```jsx
+const myArray = [1, 2, 3]
+console.log(myArray) //[1, 2, 3]
+
+myArray.forEach(el => console.log(el * 2))
+
+console.log(myArray) //[1, 2, 3] Оргинальный массив не изменился
+```
+
+- `map` (создает новый массив и формирует его исходя из результатов произведенной callback функции)
+
+```jsx
+const myArray = [1, 2, 3]
+console.log(myArray) //[1, 2, 3]
+
+********************************************const newArray = myArray.map(el => el * 3)
+
+console.log(newArray) //[3, 6, 9]
+console.log(myArray) //********************************************[1, 2, 3] Оригинальный массив не изменился
+
+```
+
+---
+
+## Деструктуризация
+
+### Деструктуризация обьектов
+
+```jsx
+const userProfile = {
+	name: 'Danila'
+	commentsQty: 23,
+	hasSignedAgreement: false,
+}
+
+const { name, commentsQty } = userProfile
+const { hasSignedAgreement } = userProfile
+
+console.log(name) //Danila
+console.log(commentsQty) //23
+```
+
+### Деструктуризация массивов
+
+```jsx
+const fruits = ['Apple', 'Banana']
+
+const [fruitOne, fruitTwo] = fruits
+
+console.log(fruitOne) //Apple
+console.log(fruitTwo) //Banana
+```
+
+### Деструктуризация в функциях
+
+```jsx
+const userProfile = {
+	name: 'Danila'
+	commentsQty: 23,
+	hasSignedAgreement: false,
+}
+
+const userInfo = ({name, commentsQty}) => {
+	if(!commentsQty) {
+		return 'User ${name} has no comments'
+	}
+	return 'User ${name} has ${commentsQty} comments'
+}
+
+userInfo(userProfile) //User Danila has 23 comments
+```
+
+---
+
+## Условные инструкции
+
+- `if`
+- `if … else`
+- `switch`
+- тернарный оператор
+
+### Инструкция If
+
+```jsx
+if ('Условие') {
+	//Блок кода, выполняемый однократно, если 'Условие' правдиво
+}
+```
+
+```jsx
+let val = 10
+
+if (val > 5) {
+	val += 20
+}
+
+console.log(val) //30
+```
