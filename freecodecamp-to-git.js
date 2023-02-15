@@ -208,3 +208,18 @@ lookUpProfile("Akira", "likes");
 //Profile Lookup (FCC)
 
 
+//Countdown Function (FCC)
+
+function countdown(n){
+  if (n < 1){
+    return [];
+  } else {
+      const countArr = countdown(n - 1);
+      countArr.unshift(n);
+      return countArr;
+  }
+}
+
+//Countdown Function (FCC)
+
+
