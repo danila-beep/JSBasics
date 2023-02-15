@@ -1035,3 +1035,352 @@ if (val > 5) {
 
 console.log(val) //30
 ```
+
+Пример IF с оператором отрицания
+
+```jsx
+const person = {
+	age: 20;
+}
+
+if(!person) {
+	console.log('Имя не указано')
+	// Другие действия в случае, если свойства "name" у обьекта "person" нет
+}
+```
+
+### Инструкция if…else
+
+```jsx
+if (условие)  {
+ // Блок кода, если условие правидиво
+} else {
+	// Блок кода, если условие ложно
+}
+```
+
+```jsx
+let val = 10
+
+if (val < 5) {
+	val += 20
+} else {
+	val -= 20
+}
+
+console.log(val) //-10
+```
+
+### Инструкция if..else..if
+
+```jsx
+if (Условие 1) {
+	// Блок кода, выполнияемый, если "Условие 1" правдиво
+} else if (Условие 2){
+	// Блок кода, если "Условие 2" правидиво
+} else {
+	// Блок кода, выполняемый однократно, если все остальные ложны
+}
+```
+
+### Использование If в функциях
+
+```jsx
+const sumPositiveNumbers = (a, b) => {
+	if (typof a !== 'number' || typeof b !== 'number') {
+		return "one of the arguments is not a number"
+	}
+	if (a <= 0 || b <= 0) {
+		return "numbers are not positive"
+	}
+	return a + b
+}
+```
+
+### Инструкция switch
+
+```jsx
+switch (Выражение) {
+	case A:
+		// Действие, если выражение === A
+		break
+	case B:
+		// Действие, если выражение === B
+		break
+	default:
+		// Действия по умолчанию
+}
+```
+
+```jsx
+const month = 2
+
+switch (month) {
+	case 12:
+		console.log('December')
+		break
+	case 1:
+		console.log('January')
+		break
+	case 2:
+		console.log('February')
+		break
+	default:
+		console.log ('it`s not a winter season')
+}
+```
+
+### Тернарный оператор
+
+У тернарного оператора 3 операнда
+
+Конструкция с тернарным оператором - это выражение (всегда возвращает значение)
+
+```jsx
+Условие ? Выражение 1 : Выражение 2
+
+// Рекомендуется :
+
+Условие
+	? Выражение 1
+	: Выражение 2
+```
+
+```jsx
+const val = 11
+
+val
+	? console.log ('Условие истинно')
+	: condole.log ('Условие ложно')
+```
+
+```jsx
+const val1 = 11
+const val2 = 25
+
+val && val2
+	? myFn1 (val1, val2)
+	: myFn2 ()
+```
+
+```jsx
+let val = 11
+console.log (val >= 0 ? val : -val) //11
+
+val = -5
+const res = val >= 0 ? val : -val
+console.log(res) //5
+```
+
+---
+
+## Циклы
+
+без циклов:
+
+```jsx
+let i = 0
+console.log(i)
+i++
+console.log(i)
+i++
+console.log(i)
+i++
+console.log(i)
+i++
+```
+
+перебор всех элементов массива без цикла:
+
+```jsx
+const myArray = [true, 'abc', 10]
+
+console.log(myArray[0])
+console.log(myArray[1])
+console.log(myArray[2])
+```
+
+перебор всех свойств обьекта без цикла:
+
+```jsx
+const myObject = {
+	x: 10,
+	y: true,
+	z: 'abc',
+}
+
+console.log(myObject.x)
+console.log(myObject.y)
+console.log(myObject.z)
+```
+
+Типы циклов
+
+- `for`
+- `for..in..`
+- `while`
+- `do..while`
+- `for..of..`
+
+### Цикл for
+
+```jsx
+for (Начальная инструкция; Условие; Итерационное действие) {
+	//Блок кода, выполняемый на каждой итерации
+}
+```
+
+```jsx
+for (let i = 0; i < 5; i++) {
+	console.log(i)
+}
+```
+
+Цикл for можно использовать для массивов (но не рекомендуется, лучше использовать forEach, map…)
+
+```jsx
+const myArray = ['first', 'second', 'third']
+
+for (let i = 0; i < myArray.length; i++) {
+	console.log(myArray[i])
+}
+
+//'first' 0
+//'second' 1
+//'third' 2
+```
+
+```jsx
+const myArray = ['first', 'second', 'third']
+
+myArray.forEach ((element, index) => {
+	console.log(element, index)
+})
+```
+
+### Цикл while
+
+```jsx
+while (Условие) {
+	//Блок кода, выполняемый пока условие правдиво на каждой итерации
+}
+```
+
+```jsx
+let i = 0
+
+while (i < 5) {
+	console.log(i)
+	i++
+}
+```
+
+бесконечный цикл
+
+```jsx
+let i = 0
+
+while (i < 5) {
+	console.log(i)
+}
+```
+
+### Цикл do while
+
+```jsx
+do {
+	//Блок кода выполняемый на каждой итерации (выполится хотя бы один раз)
+} while (Условие)
+```
+
+```jsx
+let i = 0
+
+do {
+	console.log(i)
+	i++
+} while (i < 5)
+```
+
+### Цикл for in
+
+```jsx
+for (key in Object) {
+	//Действия с каждым свойством обьекта
+	//Значение свойства - Object[key]
+}
+```
+
+```jsx
+const myObject = {
+	x: 10,
+	y: true,
+	z: 'abc'
+}
+
+for (const key in myObject) {
+	console.log(key, myObject[key])
+}
+```
+
+forEach для обьектов
+
+```jsx
+const myObject = {
+	x: 10,
+	y: true,
+	z: 'abc'
+}
+
+Object.keys(myObject).forEach (key => {
+	console.log(key, myObject[key])
+})
+```
+
+### Цикл for..of
+
+```jsx
+for (Element of Iterable) {
+	//Действия с определенным элементом
+}
+
+//iterable - Значения, которые можно перебирать
+```
+
+```jsx
+const myStr = 'Hey'
+
+for (const letter of myStr) {
+	console.log(letter)
+}
+```
+
+```jsx
+const myArray = [true, 10, 'abc', null] 
+
+for (const element of myArray){
+	console.log(element)
+}
+```
+
+Не рекомендуется для массивов!
+
+Не используется с обьектами:
+
+```jsx
+let myObject = {
+	x: 10,
+	y: true,
+	z: 'abc'
+}
+
+for (const prop of myObject) {
+	console.log(prop)
+}
+
+//Ошибка: myObject is not iterable
+```
+
+---
+
+## Модули
